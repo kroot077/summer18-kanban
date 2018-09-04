@@ -10,10 +10,16 @@
       <router-link :to="{name: 'board', params: {boardId: board._id}}">{{board.title}}</router-link>
       <button @click="deleteBoard(board._id)">DELETE BOARD</button>
     </div>
+    <div>
+      <button @click="logout">log out</button>
+    </div>
   </div>
 </template>
 
 <script>
+
+import List from '@/components/List'
+
 export default {
   name: "boards",
   created() {
@@ -45,7 +51,13 @@ export default {
     },
     deleteBoard(boardId) {
       this.$store.dispatch("deleteBoard", boardId);
+    },
+    logout(){
+      this.$store.dispatch("logout")
     }
+  },
+  components: {
+    List
   }
 };
 </script>

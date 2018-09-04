@@ -1,10 +1,13 @@
 <template>
-  
+  <div>
+    {{listId}}
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'List'
+  name: 'List',
+  props: ["listId"]
 }
 </script>
 
