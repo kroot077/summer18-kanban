@@ -1,7 +1,7 @@
 let mongoose = require('mongoose')
 let Schema = mongoose.Schema
 let ObjectId = Schema.Types.ObjectId
-let schemaName = 'Lists'
+let schemaName = 'List'
 
 let schema = new Schema({
     name: {
@@ -16,6 +16,11 @@ let schema = new Schema({
     authorId: { 
         type: ObjectId, 
         ref: 'User', 
+        required: true 
+    },
+    boardId: { 
+        type: ObjectId, 
+        ref: 'Board', 
         required: true 
     }
 })

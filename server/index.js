@@ -44,11 +44,17 @@ server.use((req, res, next) => {
 let boardRoutes = require('./server-assets/routes/board')
 server.use('/api/boards', boardRoutes)
 
+let listRoutes = require('./server-assets/routes/list')
+//@ts-ignore
+server.use('/api/list', listRoutes)
 
+let taskRoutes = require('./server-assets/routes/task')
+//@ts-ignore
+server.use('/api/task', taskRoutes)
 
-
-
-
+let commentRoutes = require('./server-assets/routes/comment')
+//@ts-ignore
+server.use('/api/comment', commentRoutes)
 
 //Catch all
 server.get('*', (req, res, next) => {
