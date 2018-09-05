@@ -4,7 +4,7 @@
       <h3>{{taskName}}</h3>
     </div>
     <div class="col-6 mt-2 mb-1">
-      <button @click="deleteTasks(taskId)">
+      <button @click="deleteTasks()">
         X
       </button>
     </div>
@@ -18,7 +18,7 @@
 export default {
   name: 'Task',
   methods: {
-    deleteTasks(taskId) {
+    deleteTasks() {
       let taskObject = {taskId: this.taskId, listId: this.listId}
       this.$store.dispatch("deleteTasks", taskObject)
     }
