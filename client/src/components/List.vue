@@ -34,7 +34,8 @@ export default {
   },
   methods: {
     deleteLists(listId) {
-      this.$store.dispatch("deleteLists", listId)
+      let listObject = {listId: this.listId, boardId: this.boardId}
+      this.$store.dispatch("deleteLists", listObject)
     },
     addTasks() {
       let taskData = {name: this.name, description: this.description, listId: this.listId}
@@ -52,7 +53,7 @@ export default {
   components: {
     Task
   },
-  props: ["listId", "listName"]
+  props: ["listId", "listName", "boardId"]
 }
 </script>
 

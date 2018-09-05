@@ -13,7 +13,7 @@
     </div>
     <div class="row">
       <div v-for="list in lists" :key="list._id" class="col-4 d-flex justify-content-center">
-        <List :listId="list._id" :listName="list.name" class="row"></List>  
+        <List :listId="list._id" :listName="list.name" :boardId="boardId" class="row"></List>  
       </div>
     </div>
   </div>
