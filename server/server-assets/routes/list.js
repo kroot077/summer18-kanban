@@ -13,13 +13,13 @@ router.post('/', (req, res, next) => {
   })
 
 router.get('/:boardId', (req, res, next) => {
-    Lists.find({boardId: req.params.id})
+    Lists.find({boardId: req.params.boardId})
         .then(data => {
             res.send(data)
         })
         .catch(err => {
-            console.log(err)
-            next()
+          res.status(400).send(err)
+          next()
         })
 })
 
