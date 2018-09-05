@@ -107,12 +107,12 @@ export default new Vuex.Store({
           dispatch('getLists', listData.boardId)
         })
     },
-    // deleteLists({ commit, dispatch }, listId) {
-    //   api.delete('list/' + listId)
-    //     .then(res => {
-    //       dispatch('getLists')
-    //   })
-    // },
+    deleteLists({ commit, dispatch }, listObject) {
+      api.delete('list/' + listObject.listId)
+        .then(res => {
+          dispatch('getLists', listObject.boardId)
+      })
+    },
 
     //TASKS
     getTasks({ commit, dispatch }) {

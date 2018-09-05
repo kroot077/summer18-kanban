@@ -49,6 +49,10 @@ router.put('/:id', (req, res, next) => {
             res.send('DELORTED')
           })
       })
+      .catch(err => {
+        res.status(400).send(err)
+        next()
+      })
   })
 
 module.exports = router
