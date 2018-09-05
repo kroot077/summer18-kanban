@@ -4,7 +4,7 @@
       <h1>{{listName}}</h1>
     </div>
     <div class="col-6 mt-2 mb-1">
-      <button @click="deleteLists(listId)" class="btn">X</button>
+      <button @click="deleteLists()" class="btn">X</button>
     </div>
     <div class="col-12">
       <form @submit.prevent="addTasks" class="form-inline">
@@ -41,7 +41,7 @@ export default {
     }
   },
   methods: {
-    deleteLists(listId) {
+    deleteLists() {
       let listObject = {listId: this.listId, boardId: this.boardId}
       this.$store.dispatch("deleteLists", listObject)
     },
