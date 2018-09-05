@@ -1,14 +1,20 @@
 <template>
-  <div>
-    {{listId}}
-    <button @click="deleteLists(listId)">
-      delete
-    </button>
-    <form @submit.prevent="addTasks">
-      <input type="text" placeholder="title" v-model="name" required>
-      <input type="text" placeholder="description" v-model="description">
-      <button type="submit">Create Task</button>
-    </form>
+  <div class="list">
+    <div class="col-6 mt-2 mb-1">
+      <h1>{{listName}}</h1>
+    </div>
+    <div class="col-6 mt-2 mb-1">
+      <button @click="deleteLists(listId)" class="btn">X</button>
+    </div>
+    <div class="col-12">
+      <form @submit.prevent="addTasks" class="form-inline">
+        <div class="form-group row">
+          <input type="text" placeholder="title" v-model="name" required class="form-control col-3">
+          <input type="text" placeholder="description" v-model="description" class="form-control col-3">
+          <button type="submit" class="col-1 btn">+</button>
+        </div>
+      </form>
+    </div>
       <div v-for="task in tasks" :key="task._id">
         <Task :taskId="task._id"></Task>
       </div>
@@ -46,7 +52,7 @@ export default {
   components: {
     Task
   },
-  props: ["listId"]
+  props: ["listId", "listName"]
 }
 </script>
 

@@ -1,13 +1,21 @@
 <template>
-  <div class="board">
-    <form @submit.prevent="addList">
-      <input type="text" v-model="name"/>
-      <button type="submit"></button>
-    </form>
-    {{boardId}}
-      <div v-for="list in lists" :key="list._id">
-        <List :listId="list._id"></List>  
+  <div class="board container">
+    <div class="row">
+      <div class="col-12 d-flex justify-content-center">
+        <h1>Welcome to {{boardName}}</h1>
       </div>
+      <div class="col-12 d-flex justify-content-center">
+        <form @submit.prevent="addList">
+          <input type="text" v-model="name"/>
+          <button type="submit">+</button>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div v-for="list in lists" :key="list._id" class="col-4 d-flex justify-content-center">
+        <List :listId="list._id" :listName="list.name" class="row"></List>  
+      </div>
+    </div>
   </div>
 
 </template>
@@ -45,6 +53,6 @@ export default {
   components: {
     List
   },
-  props: ["boardId"]
+  props: ["boardId", "boardDescription", "boardName"]
 };
 </script>

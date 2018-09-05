@@ -2,7 +2,7 @@
   <div>
     {{taskId}}
     <button @click="deleteTasks(taskId)">
-      delete
+      X
     </button>
   </div>
 </template>
