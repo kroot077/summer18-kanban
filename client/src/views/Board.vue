@@ -6,7 +6,7 @@
       </div>
       <div class="col-12 d-flex justify-content-center">
         <form @submit.prevent="addList">
-          <input type="text" v-model="name"/>
+          <input type="text" v-model="name" placeholder="Make a List Here"/>
           <button type="submit">+</button>
         </form>
       </div>
