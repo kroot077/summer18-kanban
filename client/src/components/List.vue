@@ -32,6 +32,14 @@ export default {
       description: ''
     }
   },
+  mounted() {
+    return this.$store.dispatch('getTasks', this.listId)
+  },
+  computed: {
+    tasks() {
+      return this.$store.state.tasks
+    }
+  },
   methods: {
     deleteLists(listId) {
       let listObject = {listId: this.listId, boardId: this.boardId}
@@ -40,14 +48,6 @@ export default {
     addTasks() {
       let taskData = {name: this.name, description: this.description, listId: this.listId}
       this.$store.dispatch("addTasks", taskData)
-    }
-  },
-  mounted() {
-    return this.$store.dispatch('getTasks', this.listId)
-  },
-  computed: {
-    tasks() {
-      return this.$store.state.tasks
     }
   },
   components: {
