@@ -1,7 +1,7 @@
 <template>
   <div class="board">
     <form @submit.prevent="addList">
-      <input type="text" v-model="listName"/>
+      <input type="text" v-model="name"/>
       <button type="submit"></button>
     </form>
     {{boardId}}
@@ -19,7 +19,7 @@ export default {
   name: "board",
   data() {
     return {
-      listName: ''
+      name: ''
     }
   },
   created() {
@@ -29,7 +29,7 @@ export default {
     }
   },
   mounted() {
-    
+    return this.$store.dispatch('getLists')
   },
   computed: {
     lists() {
@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     addList() {
-      let listData = {listName: this.listName, boardId: this.boardId}
+      let listData = {name: this.name, boardId: this.boardId}
       this.$store.dispatch('addList', listData)
     }
   },
