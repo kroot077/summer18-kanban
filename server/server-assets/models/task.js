@@ -17,11 +17,6 @@ let schema = new Schema({
         required: true, 
         default: Date.now() 
     },
-    authorId: { 
-        type: ObjectId, 
-        ref: 'User', 
-        required: true 
-    },
     listId: { 
         type: ObjectId, 
         ref: 'List', 

@@ -102,7 +102,8 @@ export default new Vuex.Store({
     },
     addList({commit, dispatch}, listData) {
       api.post('list/', listData)
-        .then(res => {
+      .then(res => {
+        debugger
           dispatch('getLists', listData.boardId)
         })
     },

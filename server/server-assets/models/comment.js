@@ -13,11 +13,6 @@ let schema = new Schema({
         required: true, 
         default: Date.now() 
     },
-    authorId: { 
-        type: ObjectId, 
-        ref: 'User', 
-        required: true 
-    },
     taskId: { 
         type: ObjectId, 
         ref: 'Task', 

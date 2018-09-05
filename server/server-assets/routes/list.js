@@ -7,7 +7,7 @@ router.post('/', (req, res, next) => {
         res.send(newList)
       })
       .catch(err => {
-        console.log(err)
+        res.status(400).send(err)
         next()
       })
   })
