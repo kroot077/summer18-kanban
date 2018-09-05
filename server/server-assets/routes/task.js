@@ -7,7 +7,7 @@ router.post('/', (req, res, next) => {
         res.send(newTask)
       })
       .catch(err => {
-        console.log(err)
+        res.status(400).send(err)
         next()
       })
   })
@@ -48,6 +48,10 @@ router.put('/:id', (req, res, next) => {
           .then(data => {
             res.send('DELORTED')
           })
+      })
+      .catch(err => {
+        res.status(400).send(err)
+        next()
       })
   })
 
