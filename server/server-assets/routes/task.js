@@ -1,17 +1,6 @@
 let router = require('express').Router()
 let Tasks = require('../models/task')
 
-router.get('/', (req, res, next) => {
-    Tasks.find({ authorId: req.session.uid })
-        .then(data => {
-            res.send(data)
-        })
-        .catch(err => {
-            console.log(err)
-            next()
-        })
-})
-
 router.post('/', (req, res, next) => {
     req.body.authorId = req.session.uid
     Tasks.create(req.body)

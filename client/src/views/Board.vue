@@ -37,7 +37,7 @@ export default {
     }
   },
   mounted() {
-    return this.$store.dispatch('getLists')
+    return this.$store.dispatch('getLists', this.boardId)
   },
   computed: {
     lists() {

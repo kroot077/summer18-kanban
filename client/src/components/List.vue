@@ -15,9 +15,9 @@
         </div>
       </form>
     </div>
-      <div v-for="task in tasks" :key="task._id">
-        <Task :taskId="task._id"></Task>
-      </div>
+    <div v-for="task in tasks" :key="task._id" class="col-12 p-2">
+      <Task :taskId="task._id" :taskName="task.name" :taskDescription="task.description"></Task>
+    </div>
   </div>
 </template>
 
@@ -57,4 +57,7 @@ export default {
 </script>
 
 <style scoped>
+.list {
+  border: 2px solid black;
+}
 </style>
