@@ -24,6 +24,20 @@ router.post('/', (req, res, next) => {
       })
   })
 
+// router.get('/:boardId', (req, res, next) => {
+//     Lists.findById(req.params.id)
+//         .then(data => {
+//           if (!data.authorId.equals(req.session.uid)) {
+//             return res.status(401).send('ACCESS DENIED!')
+//           }
+//             res.send(data)
+//         })
+//         .catch(err => {
+//             console.log(err)
+//             next()
+//         })
+// })
+
 router.put('/:id', (req, res, next) => {
     Lists.findById(req.params.id)
       .then(list => {
