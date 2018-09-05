@@ -16,7 +16,7 @@
       </form>
     </div>
     <div v-for="task in tasks" :key="task._id" class="col-12 p-2">
-      <Task :taskId="task._id" :taskName="task.name" :taskDescription="task.description"></Task>
+      <Task :taskId="task._id" :taskName="task.name" :taskDescription="task.description" :listId="listId"></Task>
     </div>
   </div>
 </template>
@@ -43,7 +43,7 @@ export default {
     }
   },
   mounted() {
-    return this.$store.dispatch('getTasks')
+    return this.$store.dispatch('getTasks', this.listId)
   },
   computed: {
     tasks() {

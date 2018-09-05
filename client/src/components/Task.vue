@@ -19,10 +19,11 @@ export default {
   name: 'Task',
   methods: {
     deleteTasks(taskId) {
-      this.$store.dispatch("deleteTasks", taskId)
+      let taskObject = {taskId: this.taskId, listId: this.listId}
+      this.$store.dispatch("deleteTasks", taskObject)
     }
   },
-  props: ["taskId", "taskName", "taskDescription"]
+  props: ["taskId", "taskName", "taskDescription", "listId"]
 }
 </script>
 
