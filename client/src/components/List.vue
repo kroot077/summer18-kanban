@@ -1,21 +1,19 @@
 <template>
   <div class="list">
-    <div class="col-6 mt-2 mb-1">
+    <div class="col-6 mt-2"> 
       <h1>{{listName}}</h1>
     </div>
-    <div class="col-6 mt-2 mb-1">
-      <button @click="deleteLists()" class="btn">X</button>
+    <div class="col-6 mt-2">
+      <button @click="deleteLists()" class="btn btn-round btn-red">X</button>
     </div>
-    <div class="col-12">
-      <form @submit.prevent="addTasks" class="form-inline">
-        <div class="form-group row">
-          <input type="text" placeholder="title" v-model="name" required class="form-control col-3">
-          <input type="text" placeholder="description" v-model="description" class="form-control col-3">
-          <button type="submit" class="col-1 btn">+</button>
-        </div>
+    <div class="col-12 d-flex justify-content-center align-items-start mb-2 mt-2">
+    <form @submit.prevent="addTasks" class="form-inline row">
+        <input type="text" placeholder="title" v-model="name" required class="form-control col-5">
+          <input type="text" placeholder="description" v-model="description" class="form-control col-5">
+          <button type="submit" class="col-2 btn">+</button>
       </form>
     </div>
-    <div v-for="task in tasks" :key="task._id" class="col-12 p-2">
+    <div v-for="task in tasks" :key="task._id" class="col-12 mt-2 mb-2">
       <Task :taskId="task._id" :taskName="task.name" :taskDescription="task.description" :listId="listId"></Task>
     </div>
   </div>
@@ -58,7 +56,15 @@ export default {
 </script>
 
 <style scoped>
+.btn-red{
+  border-radius:50%;
+  color: white;
+  background-color:rgb(236, 67, 67);
+}
 .list {
   border: 2px solid black;
 }
+  .btn-round{
+    border-radius: 50%;
+  }
 </style>

@@ -1,31 +1,36 @@
 <template>
-  <div class="boards container">
-    <div class="row">
-      <div class="col">
-        <h1>Welcome to Your Boards!</h1>
+  <div class="boards container-fluid">
+    <div class="row d-flex justify-content-between bg-orange">
+      <div class="col d-flex justify-content-end mb-5 mt-5">
+        <h1>WELCOME A"BOARD"!</h1>
       </div>
-      <div class="col">
-        <button @click="logout" class="btn mt-1 mb-2">log out</button>
+      <div class="col mt-5">
+        <button @click="logout" class="btn btn-dark-red">log out</button>
       </div>
     </div>
-    <div class="row">
-      <div class="col-12 d-flex justify-content-center"> 
+    <div class="row bg-red">
+      <div class="col-12 d-flex justify-content-around align-items-center mb-2 mt-3"> 
+        <h2>Make A New Board Here -></h2>
         <form @submit.prevent="addBoard" class="form-group">
-          <label for="title">Make a New Board</label>
-          <input type="text" placeholder="title" v-model="newBoard.title" required class="form-control mb-1 mt-1">
-          <input type="text" placeholder="description" v-model="newBoard.description" class="form-control mb-1 mt-1">
-          <button type="submit" class="btn mb-1 mt-1">Create Board</button>
+          <input type="text" placeholder="Put Your Board Title Here" v-model="newBoard.title" required class="form-control mb-1 mt-1">
+          <input type="text" placeholder="And Here's The Description" v-model="newBoard.description" class="form-control mb-1 mt-1">
+          <button type="submit" class="btn btn-danger mb-1 mt-1">Create Board</button>
         </form>
       </div>
     </div>
-    <div class="row">
-      <div v-for="board in boards" :key="board._id" class="col-12">
+    <div class="row bg-blue ht-all">
+      <div v-for="board in boards" :key="board._id" class="col-3 mb-2 mt-2">
         <h3>
-          <router-link :to="{name: 'board', params: {boardId: board._id, boardName: board.title, boardDescription: board.description}}" class="p-2">{{board.title}}</router-link>
-          <button @click="deleteBoard(board._id)" class="btn mb-1 mt-1">X</button>
+          <router-link :to="{name: 'board', params: {boardId: board._id, boardName: board.title, boardDescription: board.description}}" class="p-2 fc-blue">{{board.title}}</router-link>
+          <button @click="deleteBoard(board._id)" class="btn bg-red mb-1 mt-1">X</button>
         </h3>
       </div>
     </div>
+    <footer class="row align-items-end bg-yellow">
+      <div class="col">
+         <p>Copyright jshfajsgfjhdsgjhdsvl 2018</p>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -74,3 +79,30 @@ export default {
   }
 };
 </script>
+<style>
+.ht-all{
+  height:100%;
+}
+.bg-blue{
+  background-color: #c3f1ff;
+}
+@font-face {
+    font-family: primitive;
+    src: url("../assets/Primitive.ttf");
+}
+.boards{
+  font-family:primitive;
+}
+.bg-orange{
+  font-family: primitive;
+  color:white;
+ background-color: #f87d42;
+}
+.bg-red{
+  color:white;
+ background-color: #db3951;
+}
+.bg-dar-blue{
+ background-color: #00136c;
+}
+</style>

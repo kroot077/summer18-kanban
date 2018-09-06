@@ -4,7 +4,7 @@
       <h3>{{taskName}}</h3>
     </div>
     <div class="col-6 mt-2 mb-1">
-      <button @click="deleteTasks()">X</button>
+      <button @click="deleteTasks()" class="btn btn-red">X</button>
     </div>
     <div class="col-12">
       <p>{{taskDescription}}</p>
@@ -75,4 +75,15 @@ export default {
 </script>
 
 <style scoped>
+.task {
+  border: 2px solid black;
+}
+  .btn-round{
+    border-radius: 50%;
+  }
+  .btn-red{
+  border-radius:50%;
+  color: white;
+  background-color:rgb(236, 67, 67);
+}
 </style>
