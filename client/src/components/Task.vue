@@ -10,33 +10,60 @@
       <p>{{taskDescription}}</p>
     </div>
     <div class="col-12">
+      <form @submit.prevent="addComments" class="form-inline">
+        <div class="form-group">
+          <input type="text" placeholder="description" v-model="description" required class="form-control">
+          <button type="submit" class="btn">+</button>
+        </div>
+      </form>
+    </div>
+    <div v-for="comment in comments" :key="comment._id" class="col-12 mt-2 mb-1">
+      <Comment :commentId="comment._id" :commentDescription="comment.description" :taskId="taskId"></Comment>
+    </div>
+    <!-- <div class="col-12">
       <p class="moveto">Move to:</p>
-          <div v-for="list in Lists" :key="list._id">
-            <p @click="changeTasks(list._id)">
+          <div v-for="list in List" :key="list._id">
+            <p @click="changeTasks(key)">
               {{list.name}}
             </p>
           </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
-import List from '@/components/List'
+import List from "@/components/List";
+import Comment from "@/components/Comment"
 
 export default {
   name: "Task",
+  data() {
+    return {
+      description: ''
+    }
+  },
+  computed: {
+    comments() {
+      return this.$store.state.comments[this.taskId]
+    }
+  },
   methods: {
     deleteTasks() {
       let taskObject = {taskId: this.taskId, listId: this.listId}
       this.$store.dispatch("deleteTasks", taskObject)
     },
-    changeTasks(listID) {
-      let taskObject = {taskId: this.taskId, listId: listID}
-      this.$store.dispatch("changeTasks", taskObject)
+    // changeTasks(listID) {
+    //   let taskObject = {taskId: this.taskId, listId: listID}
+    //   this.$store.dispatch("changeTasks", taskObject)
+    // },
+    addComments() {
+      let commentData = {description: this.description, taskId: this.taskId}
+      this.$store.dispatch("addComments", commentData)
     }
   },
   components: {
-    Lists: List
+    List,
+    Comment
   },
   props: ["taskId", "taskName", "taskDescription", "listId"]
 };

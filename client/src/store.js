@@ -23,6 +23,7 @@ export default new Vuex.Store({
     boards: [],
     lists: [],
     tasks: {},
+    comments: {},
     activeBoard: {}
   },
   mutations: {
@@ -39,6 +40,9 @@ export default new Vuex.Store({
       // state.tasks[data.listId] = data.tasks
       //we use vue set because the tasks object is not watched deeply(this applies a watcher to the key so computeds work)
       Vue.set(state.tasks, data.listId, data.tasks)
+    },
+    setComments(state, data) {
+      Vue.set(state.comments, data.taskId, data.comments)
     },
     clearUser(state) {
       state.user = {}
@@ -138,6 +142,26 @@ export default new Vuex.Store({
       api.put('task/' + taskObject.taskId, taskObject.listId)
         .then(res => {
           dispatch('getTasks', taskObject.listId)
+        })
+    },
+
+    //COMMENTS
+    getComments({commit, dispatch}, taskId) {
+      api.get('comment/' + taskId)
+        .then(res => {
+          commit('setComments', {taskId, comments: res.data})
+        })
+    },
+    addComments({ commit, dispatch }, commentData) {
+      api.post('comment/', commentData)
+        .then(res => {
+          dispatch('getComments', commentData.taskId)
+        })
+    },
+    deleteComments({commit, dispatch}, commentObject) {
+      api.delete('comment/' + commentObject.commentId)
+        .then(res => {
+          dispatch('getComments', commentObject.taskId)
         })
     }
   },
