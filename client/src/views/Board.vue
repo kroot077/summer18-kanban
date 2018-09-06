@@ -1,6 +1,6 @@
 <template>
   <div class="board container-fluid">
-    <div class="row d-flex justify-content-between">
+    <div class="row d-flex justify-content-between bg-orange">
       <div class="col-12">
         <h1>Welcome to {{boardName}}</h1>
       </div>
@@ -8,19 +8,19 @@
       <p>Board Description: {{boardDescription}}</p>
     </div>
     </div>
-    <div class="row">
-        <div class="col-12 mb-5 mt-1">
+    <div class="row d-flex justify-content-center bg-red">
+        <div class="col-3 mb-5 mt-5">
         <form @submit.prevent="addList" class="form-inline">
           <div class="form-group">
           <input type="text" v-model="name" placeholder="Make a List Here" class="form-control"/>
-          <button class="btn btn-primary btn-round" type="submit">+</button>
+          <button class="btn bg-orange btn-round" type="submit"><i class="fas fa-plus"></i></button>
           </div>
         </form>
       </div>
     </div>
-    <div class="row">
-      <div v-for="list in lists" :key="list._id" class="col-4 d-flex">
-        <List :listId="list._id" :listName="list.name" :boardId="boardId" class="row"></List>  
+    <div class="row d-flex justify-content-center">
+      <div v-for="list in lists" :key="list._id" class="col-4 d-flex mt-2 mb-2 mx-1">
+        <List :listId="list._id" :listName="list.name" :boardId="boardId" class="row bg-blue"></List>  
       </div>
     </div>
     <footer class="row">
@@ -75,7 +75,32 @@ export default {
 };
 </script>
 <style>
-  .btn-round{
-    border-radius: 50%;
-  }
+  .ht-all{
+  height:50vh;
+}
+.bg-blue{
+  background-color: #c3f1ff;
+}
+@font-face {
+    font-family: primitive;
+    src: url("../assets/Primitive.ttf");
+}
+.board{
+  font-family:primitive;
+}
+.bg-orange{
+  font-family: primitive;
+  color:white;
+ background-color: #f87d42;
+}
+.ma-w{
+  max-width:95%;
+}
+.bg-red{
+  color:white;
+ background-color: #db3951;
+}
+.bg-dark-blue{
+ background-color: #00136c;
+}
 </style>

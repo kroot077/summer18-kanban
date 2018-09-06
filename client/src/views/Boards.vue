@@ -5,12 +5,12 @@
         <h1>WELCOME A"BOARD"!</h1>
       </div>
       <div class="col mt-5">
-        <button @click="logout" class="btn btn-dark-red">log out</button>
+        <button @click="logout" class="btn bg-red">log out</button>
       </div>
     </div>
     <div class="row bg-red">
       <div class="col-12 d-flex justify-content-around align-items-center mb-2 mt-3"> 
-        <h2>Make A New Board Here -></h2>
+        <h2>Make A New Board Here ----------------></h2>
         <form @submit.prevent="addBoard" class="form-group">
           <input type="text" placeholder="Put Your Board Title Here" v-model="newBoard.title" required class="form-control mb-1 mt-1">
           <input type="text" placeholder="And Here's The Description" v-model="newBoard.description" class="form-control mb-1 mt-1">
@@ -81,7 +81,7 @@ export default {
 </script>
 <style>
 .ht-all{
-  height:100%;
+  height:50vh;
 }
 .bg-blue{
   background-color: #c3f1ff;
@@ -102,7 +102,7 @@ export default {
   color:white;
  background-color: #db3951;
 }
-.bg-dar-blue{
+.bg-dark-blue{
  background-color: #00136c;
 }
 </style>

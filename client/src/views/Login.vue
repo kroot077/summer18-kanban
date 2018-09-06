@@ -2,7 +2,7 @@
   <div class="login container">
     <div class="row">
       <div class="col">
-        <h1>KANBAN</h1>
+        <h1 class="font-size">KANBAN</h1>
       </div>
     </div>
     <div class="row">
@@ -56,3 +56,15 @@ export default {
   }
 };
 </script>
+<style>
+.font-size{
+  font-size:20vh;
+}
+@font-face {
+    font-family: primitive;
+    src: url("../assets/Primitive.ttf");
+}
+.login{
+  font-family:primitive;
+}
+</style>
