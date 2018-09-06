@@ -59,9 +59,8 @@ export default {
       this.$store.dispatch("deleteTasks", taskObject)
     },
     moveTasks() {
-      debugger
-      let taskObject = {taskId: this.taskId, listId: this.newListId, taskName: this.taskName, taskDescription: this.taskDescription}
-      this.$store.dispatch("changeTasks", taskObject)
+      let newData = {taskId: this.taskId, listId: this.newListId, taskName: this.taskName, taskDescription: this.taskDescription}
+      this.$store.dispatch("changeTasks", {newData, oldId: this.listId})
     },
     addComments() {
       let commentData = {description: this.description, taskId: this.taskId}
