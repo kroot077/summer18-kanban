@@ -11,17 +11,34 @@
     <div class="col-12">
       <p>{{taskDescription}}</p>
     </div>
+    <div class="col-12">
+      <p class="moveto">Move to:</p>
+          <div v-for="list in Lists" :key="list._id">
+            <p @click="changeTasks(list._id)">
+              {{list.name}}
+            </p>
+          </div>
+    </div>
   </div>
 </template>
 
 <script>
+import List from '@/components/List'
+
 export default {
   name: 'Task',
   methods: {
     deleteTasks() {
       let taskObject = {taskId: this.taskId, listId: this.listId}
       this.$store.dispatch("deleteTasks", taskObject)
+    },
+    changeTasks(listID) {
+      let taskObject = {taskId: this.taskId, listId: listID}
+      this.$store.dispatch("changeTasks", taskObject)
     }
+  },
+  components: {
+    Lists: List
   },
   props: ["taskId", "taskName", "taskDescription", "listId"]
 }
