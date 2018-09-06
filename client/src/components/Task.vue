@@ -20,31 +20,37 @@
     <div v-for="comment in comments" :key="comment._id" class="col-12 mt-2 mb-1">
       <Comment :commentId="comment._id" :commentDescription="comment.description" :taskId="taskId"></Comment>
     </div>
-    <!-- <div class="col-12">
-      <p class="moveto">Move to:</p>
-          <div v-for="list in List" :key="list._id">
-            <p @click="changeTasks(key)">
-              {{list.name}}
-            </p>
-          </div>
-    </div> -->
+    <div class="col-12">
+      <form>
+        <select @change="moveTasks" v-model="newListId">
+          <option value="moveto">Move to...</option>
+            <option v-for="list in lists" :key="list._id" :value="list._id">{{list.name}}</option>
+        </select>
+      </form>
+    </div>
   </div>
 </template>
 
 <script>
-import List from "@/components/List";
 import Comment from "@/components/Comment"
 
 export default {
   name: "Task",
   data() {
     return {
-      description: ''
+      description: '',
+      newListId: ''
     }
+  },
+  mounted() {
+    return this.$store.dispatch('getComments', this.taskId)
   },
   computed: {
     comments() {
       return this.$store.state.comments[this.taskId]
+    },
+    lists() {
+      return this.$store.state.lists
     }
   },
   methods: {
@@ -52,17 +58,17 @@ export default {
       let taskObject = {taskId: this.taskId, listId: this.listId}
       this.$store.dispatch("deleteTasks", taskObject)
     },
-    // changeTasks(listID) {
-    //   let taskObject = {taskId: this.taskId, listId: listID}
-    //   this.$store.dispatch("changeTasks", taskObject)
-    // },
+    moveTasks() {
+      debugger
+      let taskObject = {taskId: this.taskId, listId: this.newListId, taskName: this.taskName, taskDescription: this.taskDescription}
+      this.$store.dispatch("changeTasks", taskObject)
+    },
     addComments() {
       let commentData = {description: this.description, taskId: this.taskId}
       this.$store.dispatch("addComments", commentData)
     }
   },
   components: {
-    List,
     Comment
   },
   props: ["taskId", "taskName", "taskDescription", "listId"]
