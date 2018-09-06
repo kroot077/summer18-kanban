@@ -4,9 +4,7 @@
       <h3>{{taskName}}</h3>
     </div>
     <div class="col-6 mt-2 mb-1">
-      <button @click="deleteTasks()">
-        X
-      </button>
+      <button @click="deleteTasks()">X</button>
     </div>
     <div class="col-12">
       <p>{{taskDescription}}</p>
@@ -26,7 +24,7 @@
 import List from '@/components/List'
 
 export default {
-  name: 'Task',
+  name: "Task",
   methods: {
     deleteTasks() {
       let taskObject = {taskId: this.taskId, listId: this.listId}
@@ -41,7 +39,7 @@ export default {
     Lists: List
   },
   props: ["taskId", "taskName", "taskDescription", "listId"]
-}
+};
 </script>
 
 <style scoped>

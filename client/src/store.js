@@ -36,7 +36,9 @@ export default new Vuex.Store({
       state.lists = lists
     },
     setTasks(state, data) {
-      state.tasks[data.listId] = data.tasks
+      // state.tasks[data.listId] = data.tasks
+      //we use vue set because the tasks object is not watched deeply(this applies a watcher to the key so computeds work)
+      Vue.set(state.tasks, data.listId, data.tasks)
     },
     clearUser(state) {
       state.user = {}
