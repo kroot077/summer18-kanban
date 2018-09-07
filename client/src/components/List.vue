@@ -73,7 +73,7 @@ export default {
   height:50vh;
 }
 .bg-blue{
-  background-color: #c3f1ff;
+  background-color: rgba(193, 240, 254, 0.8);
 }
 @font-face {
     font-family: primitive;

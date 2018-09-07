@@ -18,12 +18,15 @@
         </form>
       </div>
     </div>
-    <div class="row bg-blue ht-all">
-      <div v-for="board in boards" :key="board._id" class="col-3 mb-2 mt-2">
-        <h3>
-          <router-link :to="{name: 'board', params: {boardId: board._id, boardName: board.title, boardDescription: board.description}}" class="p-2 fc-blue">{{board.title}}</router-link>
-          <button @click="deleteBoard(board._id)" class="btn bg-red mb-1 mt-1">X</button>
+    <div class="row mt-2 ht-all">
+      <div v-for="board in boards" :key="board._id" class="col-3">
+        <div class=" bg-blue mw-75 dark-blue mb">
+          <h3>
+          <router-link :to="{name: 'board', params: {boardId: board._id, boardName: board.title, boardDescription: board.description}}" class="p-2 dark-blue">{{board.title}}</router-link>
         </h3>
+        <!-- <p>{{board.description}}</p> -->
+        <button @click="deleteBoard(board._id)" class="btn bg-red mb-1 mt-1">X</button>
+        </div>
       </div>
     </div>
     <footer class="row align-items-end bg-yellow">
@@ -80,11 +83,9 @@ export default {
 };
 </script>
 <style>
-.ht-all{
-  height:50vh;
-}
+
 .bg-blue{
-  background-color: #c3f1ff;
+  background-color: rgba(193, 240, 254, 0.8);
 }
 @font-face {
     font-family: primitive;
@@ -102,7 +103,10 @@ export default {
   color:white;
  background-color: #db3951;
 }
-.bg-dark-blue{
- background-color: #00136c;
+.dark-blue{
+ color: #00136c;
+}
+.ma-w{
+  max-width:50%;
 }
 </style>

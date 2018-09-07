@@ -78,9 +78,6 @@ export default {
   .ht-all{
   height:50vh;
 }
-.bg-blue{
-  background-color: #c3f1ff;
-}
 @font-face {
     font-family: primitive;
     src: url("../assets/Primitive.ttf");
