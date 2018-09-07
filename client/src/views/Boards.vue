@@ -29,7 +29,7 @@
         </div>
       </div>
     </div>
-    <footer class="row align-items-end bg-yellow">
+    <footer class="row align-items-end white-font">
       <div class="col">
          <p>Copyright jshfajsgfjhdsgjhdsvl 2018</p>
       </div>
@@ -102,6 +102,9 @@ export default {
 .bg-red{
   color:white;
  background-color: #db3951;
+}
+.white-font{
+ color: white;
 }
 .dark-blue{
  color: #00136c;

@@ -18,7 +18,7 @@
         </form>
       </div>
     </div>
-    <div class="row d-flex justify-content-center">
+    <div class="row d-flex justify-content-center bg-image">
       <div v-for="list in lists" :key="list._id" class="col-4 d-flex mt-2 mb-2 mx-1">
         <List :listId="list._id" :listName="list.name" :boardId="boardId" class="row bg-blue"></List>  
       </div>
@@ -75,6 +75,14 @@ export default {
 };
 </script>
 <style>
+.bg-image{
+   background-image:url('../../public/assets-public/Image018.png');
+    background-position:center;
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    height:100%;
+}
   .ht-all{
   height:50vh;
 }
