@@ -29,7 +29,7 @@
         </div>
       </div>
     </div>
-    <footer class="row align-items-end white-font">
+    <footer class="row align-items-end">
       <div class="col">
          <p>Copyright jshfajsgfjhdsgjhdsvl 2018</p>
       </div>
